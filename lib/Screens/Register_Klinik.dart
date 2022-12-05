@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:d_medis_ios_apps/styles/colors.dart';
 import 'package:d_medis_ios_apps/styles/styles.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:d_medis_ios_apps/constants.dart';
 import "package:latlong2/latlong.dart" as latLng;
 
 class RegisterKlinik extends StatelessWidget {
@@ -15,25 +16,102 @@ class RegisterKlinik extends StatelessWidget {
         slivers: [
           SliverAppBar(
             pinned: true,
-            title: Text('Detail Doctor'),
-            backgroundColor: Color(MyColors.primary),
-            expandedHeight: 200,
+            title: Text('Register Klinik'),
+            
+            backgroundColor: Color.fromARGB(255, 45, 134, 236),
+            expandedHeight: 150,
             flexibleSpace: FlexibleSpaceBar(
-              // background: Image(
-              //   image: AssetImage('assets/images/hospital.jpeg'),
-              //   fit: BoxFit.cover,
-              // ),
-            ),
+                background: Image(
+                  image: AssetImage('assets/images/hospital.jpeg'),
+                  fit: BoxFit.cover,
+                ),
+                ),
           ),
           SliverToBoxAdapter(
             child: DetailBody(),
           )
+          
         ],
       ),
     );
   }
 }
 
+
+
+class DetailBody extends StatelessWidget {
+  const DetailBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      margin: EdgeInsets.only(bottom: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // DetailDoctorCard(),
+          SizedBox(
+            height: 15,
+          ),
+          // DoctorInfo(),
+          SizedBox(
+            height: 30,
+          ),
+          // Text(
+          //   'About Doctor',
+          //   style: kTitleStyle,
+          // ),
+          spinner(),
+          SizedBox(
+            height: 70,
+          ),
+
+           spinner2(),
+          SizedBox(
+            height: 70,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          // Text(
+          //   'Dr. Joshua Simorangkir is a specialist in internal medicine who specialzed blah blah.',
+          //   style: TextStyle(
+          //     color: Color(MyColors.purple01),
+          //     fontWeight: FontWeight.w500,
+          //     height: 1.5,
+          //   ),
+          // ),
+          SizedBox(
+            height: 25,
+          ),
+          // Text(
+          //   'Location',
+          //   style: kTitleStyle,
+          // ),
+          SizedBox(
+            height: 25,
+          ),
+          // DoctorLocation(),
+          // SizedBox(
+          //   height: 25,
+          // ),
+          // ElevatedButton(
+          //   style: ButtonStyle(
+          //     backgroundColor: MaterialStateProperty.all<Color>(
+          //       Color(MyColors.primary),
+          //     ),
+          //   ),
+          //   child: Text('Book Appointment'),
+          //   onPressed: () => {},
+          // )
+        ],
+      ),
+    );
+  }
+}
 
 final List<String> items = [
   'Item1',
@@ -143,76 +221,13 @@ class spinner extends StatelessWidget {
             ),
           ),
         ],
+        
       ),
+      
     );
   }
 
   void setState(Null Function() param0) {}
-}
-
-class DetailBody extends StatelessWidget {
-  const DetailBody({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      margin: EdgeInsets.only(bottom: 30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          DetailDoctorCard(),
-          SizedBox(
-            height: 15,
-          ),
-          DoctorInfo(),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            'About Doctor',
-            style: kTitleStyle,
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Dr. Joshua Simorangkir is a specialist in internal medicine who specialzed blah blah.',
-            style: TextStyle(
-              color: Color(MyColors.purple01),
-              fontWeight: FontWeight.w500,
-              height: 1.5,
-            ),
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          Text(
-            'Location',
-            style: kTitleStyle,
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          // DoctorLocation(),
-          // SizedBox(
-          //   height: 25,
-          // ),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(
-                Color(MyColors.primary),
-              ),
-            ),
-            child: Text('Book Appointment'),
-            onPressed: () => {},
-          )
-        ],
-      ),
-    );
-  }
 }
 
 // class DoctorLocation extends StatelessWidget {
@@ -244,33 +259,11 @@ class DetailBody extends StatelessWidget {
 //   }
 // }
 
-class DoctorInfo extends StatelessWidget {
-  const DoctorInfo({
-    Key? key,
-  }) : super(key: key);
+// class DoctorInfo extends StatelessWidget {
+//   const DoctorInfo({
+//     Key? key,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: const [
-        NumberCard(
-          label: 'Patients',
-          value: '100+',
-        ),
-        SizedBox(width: 15),
-        NumberCard(
-          label: 'Experiences',
-          value: '10 years',
-        ),
-        SizedBox(width: 15),
-        NumberCard(
-          label: 'Rating',
-          value: '4.0',
-        ),
-      ],
-    );
-  }
-}
 
 class AboutDoctor extends StatelessWidget {
   final String title;
@@ -337,53 +330,167 @@ class NumberCard extends StatelessWidget {
   }
 }
 
-class DetailDoctorCard extends StatelessWidget {
-  const DetailDoctorCard({
+final List<String> items2 = [
+  'Item1',
+  'Item2',
+  'Item3',
+  'Item4',
+  'Item5',
+  'Item6',
+  'Item7',
+  'Item8',
+];
+
+String? selected2Value;
+
+class spinner2 extends StatelessWidget {
+  const spinner2({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: Container(
-          padding: EdgeInsets.all(15),
-          width: double.infinity,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Dr. Josua Simorangkir',
-                      style: TextStyle(
-                          color: Color(MyColors.header01),
-                          fontWeight: FontWeight.w700),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 3),
+          ),
+          Expanded(
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton2(
+                isExpanded: true,
+                hint: Row(
+                  children: const [
+                    Icon(
+                      Icons.location_history,
+                      size: 16,
+                      color: Color.fromARGB(255, 78, 78, 78),
                     ),
                     SizedBox(
-                      height: 10,
+                      width: 4,
                     ),
-                    Text(
-                      'Heart Specialist',
-                      style: TextStyle(
-                        color: Color(MyColors.grey02),
-                        fontWeight: FontWeight.w500,
+                    Expanded(
+                      child: Text(
+                        'Silahkan pilih lokasi',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 78, 78, 78),
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],
                 ),
+                items: items
+                    .map((item) => DropdownMenuItem<String>(
+                          value: item,
+                          child: Text(
+                            item,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ))
+                    .toList(),
+                value: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value as String;
+                  });
+                },
+                icon: const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                ),
+                iconSize: 14,
+                iconEnabledColor: Color.fromARGB(255, 29, 29, 28),
+                iconDisabledColor: Colors.grey,
+                buttonHeight: 50,
+                buttonWidth: 160,
+                buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                buttonDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: Color.fromARGB(255, 230, 245, 255),
+                ),
+                buttonElevation: 0,
+                itemHeight: 40,
+                itemPadding: const EdgeInsets.only(left: 14, right: 14),
+                dropdownMaxHeight: 200,
+                dropdownWidth: 200,
+                dropdownPadding: null,
+                dropdownDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    color: Colors.white),
+                dropdownElevation: 8,
+                scrollbarRadius: const Radius.circular(40),
+                scrollbarThickness: 6,
+                scrollbarAlwaysShow: true,
+                offset: const Offset(-20, 0),
               ),
-              Image(
-                image: AssetImage('assets/images/doctor01.jpeg'),
-                width: 100,
-              )
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
 }
+
+void setState(Null Function() param0) {}
+// class DetailDoctorCard extends StatelessWidget {
+//   const DetailDoctorCard({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Card(
+//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+//         child: Container(
+//           padding: EdgeInsets.all(15),
+//           width: double.infinity,
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.start,
+//             children: [
+//               Expanded(
+//                 child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     Text(
+//                       'Dr. Josua Simorangkir',
+//                       style: TextStyle(
+//                           color: Color(MyColors.header01),
+//                           fontWeight: FontWeight.w700),
+//                     ),
+//                     SizedBox(
+//                       height: 10,
+//                     ),
+//                     Text(
+//                       'Heart Specialist',
+//                       style: TextStyle(
+//                         color: Color(MyColors.grey02),
+//                         fontWeight: FontWeight.w500,
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               Image(
+//                 image: AssetImage('assets/images/doctor01.jpeg'),
+//                 width: 100,
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

@@ -38,6 +38,8 @@ dependencies:
   dropdown_button2: ^1.9.2
   vrouter: ^1.2.1
   greeting: ^0.0.1
+  pageviewj: ^0.0.3
+  pageview_widget_indicator: ^0.0.3
 
 dev_dependencies:
   flutter_test:
@@ -67,9 +69,11 @@ flutter:
     - assets/images/
     - assets/icons/
   fonts:
-    - family:  MyFlutterApp
+    - family: MyFlutterApp
       fonts:
         - asset: assets/fonts/MyFlutterApp.ttf
+  
+        
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -4,7 +4,7 @@ import 'package:d_medis_ios_apps/routes/router.dart';
 import 'package:d_medis_ios_apps/styles/colors.dart';
 import 'package:d_medis_ios_apps/styles/styles.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:d_medis_ios_apps/my_flutter_app_icons.dart';
+import 'package:d_medis_ios_apps/icon_generator/my_flutter_app_icons.dart';
 import 'package:d_medis_ios_apps/responsive.dart';
 
 
@@ -313,7 +313,7 @@ class AppointmentCard extends StatelessWidget {
 List<Map> categories1 = [
   {'icon1': MyFlutterApp.group_98, 'text1': 'Registrasi Klinik'},
   {'icon1': MyFlutterApp.frame, 'text1': 'Registrasi Telemedical'},
-  {'icon1': MyFlutterApp.group_95, 'text1': 'Riwayat Medis'},
+  {'icon1': MyFlutterApp.group_96, 'text1': 'Daftar Antrian'},
 ];
 
 class CategoryIcons1 extends StatelessWidget {
@@ -427,7 +427,7 @@ class CategoryIcon1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Color(MyColors.bg01),
-      onTap: () {Navigator.pushNamed(context, '/registerklinik');},
+      onTap: () {Navigator.pushNamed(context, '/listpoli');},
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Column(

@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:d_medis_ios_apps/styles/colors.dart';
 import 'package:d_medis_ios_apps/styles/styles.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:pageview_widget_indicator/pageview_widget_indicator.dart';
 import 'package:d_medis_ios_apps/constants.dart';
 import "package:latlong2/latlong.dart" as latLng;
 
@@ -17,27 +19,23 @@ class RegisterKlinik extends StatelessWidget {
           SliverAppBar(
             pinned: true,
             title: Text('Register Klinik'),
-            
             backgroundColor: Color.fromARGB(255, 45, 134, 236),
             expandedHeight: 150,
             flexibleSpace: FlexibleSpaceBar(
-                background: Image(
-                  image: AssetImage('assets/images/hospital.jpeg'),
-                  fit: BoxFit.cover,
-                ),
-                ),
+              background: Image(
+                image: AssetImage('assets/images/hospital.jpeg'),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           SliverToBoxAdapter(
             child: DetailBody(),
           )
-          
         ],
       ),
     );
   }
 }
-
-
 
 class DetailBody extends StatelessWidget {
   const DetailBody({
@@ -69,10 +67,11 @@ class DetailBody extends StatelessWidget {
             height: 70,
           ),
 
-           spinner2(),
+          spinner2(),
           SizedBox(
             height: 70,
           ),
+          
           SizedBox(
             height: 15,
           ),
@@ -221,9 +220,7 @@ class spinner extends StatelessWidget {
             ),
           ),
         ],
-        
       ),
-      
     );
   }
 
@@ -263,7 +260,6 @@ class spinner extends StatelessWidget {
 //   const DoctorInfo({
 //     Key? key,
 //   }) : super(key: key);
-
 
 class AboutDoctor extends StatelessWidget {
   final String title;
@@ -444,6 +440,7 @@ class spinner2 extends StatelessWidget {
 }
 
 void setState(Null Function() param0) {}
+
 // class DetailDoctorCard extends StatelessWidget {
 //   const DetailDoctorCard({
 //     Key? key,

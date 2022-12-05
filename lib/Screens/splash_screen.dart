@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:d_medis_ios_apps/Screens/signup_screen.dart';
 import 'login_screen.dart';

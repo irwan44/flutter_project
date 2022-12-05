@@ -1,36 +1,12 @@
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:d_medis_ios_apps/routes/router.dart';
 import 'package:d_medis_ios_apps/styles/colors.dart';
 import 'package:d_medis_ios_apps/styles/styles.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:d_medis_ios_apps/my_flutter_app_icons.dart';
 import 'package:d_medis_ios_apps/responsive.dart';
 
-List<Map> doctors = [
-  {
-    'img': 'assets/images/poli1.png',
-    'doctorName': 'Klinik Omega Citra Raya',
-    'doctorTitle': 'Jl Arya Jaya Santika RT 02 RW 03 '
-  },
-  {
-    'img': 'assets/images/poli2.png',
-    'doctorName': 'Klinik Omega Citra Raya',
-    'doctorTitle':
-    'Jl Arya Jaya Santika RT 02 RW 03'
-  },
-  {
-     'img': 'assets/images/poli1.png',
-    'doctorName': 'Klinik Omega Citra Raya',
-    'doctorTitle':
-    'Jl Arya Jaya Santika RT 02 RW 03'
-  },
-  {
-     'img': 'assets/images/poli2.png',
-    'doctorName': 'Klinik Omega Citra Raya',
-    'doctorTitle':
-    'Jl Arya Jaya Santika RT 02 RW 03'
-  }
-];
 
 class HomeTab extends StatelessWidget {
   final void Function() onPressedScheduleCard;
@@ -45,7 +21,7 @@ class HomeTab extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 30),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
             SizedBox(
@@ -59,7 +35,7 @@ class HomeTab extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            CategoryIcons(),
+            CategoryIcons1(),
             SizedBox(
               height: 20,
             ),
@@ -113,17 +89,16 @@ class HomeTab extends StatelessWidget {
                   onPressed: () {},
                 )
               ],
-              ),
+            ),
             SizedBox(
-                  height: 20,
-                ),
-
-         for (var doctor in doctors)
+              height: 20,
+            ),
+            for (var doctor in doctors)
               TopDoctorCard(
                 img: doctor['img'],
                 doctorName: doctor['doctorName'],
                 doctorTitle: doctor['doctorTitle'],
-              )               
+              )
           ],
         ),
       ),
@@ -131,7 +106,35 @@ class HomeTab extends StatelessWidget {
   }
 }
 
+List<Map> doctors = [
+  {
+    'img': 'assets/images/poli1.png',
+    'doctorName': 'Klinik Omega Citra Raya',
+    'doctorTitle': 'Jl Arya Jaya Santika RT 02 RW 03 '
+  },
+  {
+    'img': 'assets/images/poli2.png',
+    'doctorName': 'Klinik Omega Citra Raya',
+    'doctorTitle': 'Jl Arya Jaya Santika RT 02 RW 03'
+  },
+  {
+    'img': 'assets/images/poli1.png',
+    'doctorName': 'Klinik Omega Citra Raya',
+    'doctorTitle': 'Jl Arya Jaya Santika RT 02 RW 03'
+  },
+  {
+    'img': 'assets/images/poli2.png',
+    'doctorName': 'Klinik Omega Citra Raya',
+    'doctorTitle': 'Jl Arya Jaya Santika RT 02 RW 03'
+  }
+];
+
+
+
+
+
 class TopDoctorCard extends StatelessWidget {
+
   String img;
   String doctorName;
   String doctorTitle;
@@ -198,13 +201,13 @@ class TopDoctorCard extends StatelessWidget {
                       width: 5,
                     ),
                     Text(
-                  doctorTitle,
-                  style: TextStyle(
-                    color: Color(MyColors.grey02),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+                      doctorTitle,
+                      style: TextStyle(
+                        color: Color(MyColors.grey02),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ],
                 )
               ],
@@ -308,13 +311,13 @@ class AppointmentCard extends StatelessWidget {
 }
 
 List<Map> categories1 = [
-  {'icon': MyFlutterApp.group_98,'text': 'Registrasi Klinik'},
-  {'icon': MyFlutterApp.frame, 'text': 'Registrasi Telemedical'},
-  {'icon': MyFlutterApp.group_95, 'text': 'Riwayat Medis'},
+  {'icon1': MyFlutterApp.group_98, 'text1': 'Registrasi Klinik'},
+  {'icon1': MyFlutterApp.frame, 'text1': 'Registrasi Telemedical'},
+  {'icon1': MyFlutterApp.group_95, 'text1': 'Riwayat Medis'},
 ];
 
-class CategoryIcons extends StatelessWidget {
-  const CategoryIcons({
+class CategoryIcons1 extends StatelessWidget {
+  const CategoryIcons1({
     Key? key,
   }) : super(key: key);
 
@@ -324,9 +327,9 @@ class CategoryIcons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         for (var category in categories1)
-          CategoryIcon(
-            icon: category['icon'],
-            text: category['text'],
+          CategoryIcon1(
+            icon1: category['icon1'],
+            text1: category['text1'],
           ),
       ],
     );
@@ -334,9 +337,9 @@ class CategoryIcons extends StatelessWidget {
 }
 
 List<Map> categories2 = [
-  {'icon': MyFlutterApp.group_95, 'text': 'Daftar Antrian'},
-  {'icon': MyFlutterApp.group_97, 'text': 'Informasi Dokter'},
-  {'icon': Icons.local_hospital, 'text': 'Info D-Medis'},
+  {'icon2': MyFlutterApp.group_95, 'text2': 'Daftar Antrian'},
+  {'icon2': MyFlutterApp.group_97, 'text2': 'Informasi Dokter'},
+  {'icon2': Icons.local_hospital, 'text2': 'Info D-Medis'},
 ];
 
 class CategoryIcons2 extends StatelessWidget {
@@ -350,9 +353,9 @@ class CategoryIcons2 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         for (var category in categories2)
-          CategoryIcon(
-            icon: category['icon'],
-            text: category['text'],
+          CategoryIcon2(
+            icon2: category['icon2'],
+            text2: category['text2'],
           ),
       ],
     );
@@ -411,20 +414,20 @@ class ScheduleCard extends StatelessWidget {
   }
 }
 
-class CategoryIcon extends StatelessWidget {
-  IconData icon;
-  String text;
+class CategoryIcon1 extends StatelessWidget {
+  IconData icon1;
+  String text1;
 
-  CategoryIcon({
-    required this.icon,
-    required this.text,
+  CategoryIcon1({
+    required this.icon1,
+    required this.text1,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Color(MyColors.bg01),
-      onTap: () {},
+      onTap: () {Navigator.pushNamed(context, '/registerklinik');},
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Column(
@@ -433,11 +436,11 @@ class CategoryIcon extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                color: Color(MyColors.bg),
+                color: Color.fromARGB(255, 230, 245, 255),
                 borderRadius: BorderRadius.circular(50),
               ),
               child: Icon(
-                icon,
+                icon1,
                 color: Color.fromARGB(255, 31, 177, 245),
               ),
             ),
@@ -445,7 +448,54 @@ class CategoryIcon extends StatelessWidget {
               height: 10,
             ),
             Text(
-              text,
+              text1,
+              style: TextStyle(
+                color: Color.fromARGB(255, 31, 177, 245),
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+class CategoryIcon2 extends StatelessWidget {
+  IconData icon2;
+  String text2;
+
+  CategoryIcon2({
+    required this.icon2,
+    required this.text2,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      splashColor: Color(MyColors.bg01),
+      onTap: () {Navigator.pushNamed(context, '/registerklinik');},
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Column(
+          children: [
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 230, 245, 255),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Icon(
+                icon2,
+                color: Color.fromARGB(255, 31, 177, 245),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              text2,
               style: TextStyle(
                 color: Color.fromARGB(255, 31, 177, 245),
                 fontSize: 12,
@@ -472,13 +522,10 @@ final List<String> items = [
 
 String? selectedValue;
 
-
-
-class spinner extends StatelessWidget{
-const spinner({
+class spinner extends StatelessWidget {
+  const spinner({
     Key? key,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -495,88 +542,97 @@ const spinner({
           ),
           Expanded(
             child: DropdownButtonHideUnderline(
-        child: DropdownButton2(
-          isExpanded: true,
-          hint: Row(
-            children: const [
-              Icon(
-                Icons.location_history,
-                size: 16,
-                color: Color.fromARGB(255, 78, 78, 78),
-              ),
-              SizedBox(
-                width: 4,
-              ),
-              Expanded(
-                child: Text(
-                  'Select Item',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color.fromARGB(255, 78, 78, 78),
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ],
-          ),
-          items: items
-                  .map((item) =>
-                  DropdownMenuItem<String>(
-                    value: item,
-                    child: Text(
-                      item,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                      overflow: TextOverflow.ellipsis,
+              child: DropdownButton2(
+                isExpanded: true,
+                hint: Row(
+                  children: const [
+                    Icon(
+                      Icons.location_history,
+                      size: 16,
+                      color: Color.fromARGB(255, 78, 78, 78),
                     ),
-                  ))
-                  .toList(),
-          value: selectedValue,
-          onChanged: (value) {
-            setState(() {
-              selectedValue = value as String;
-            });
-          },
-          icon: const Icon(
-            Icons.arrow_forward_ios_outlined,
-          ),
-          iconSize: 14,
-          iconEnabledColor: Color.fromARGB(255, 29, 29, 28),
-          iconDisabledColor: Colors.grey,
-          buttonHeight: 50,
-          buttonWidth: 160,
-          buttonPadding: const EdgeInsets.only(left: 14, right: 14),
-          buttonDecoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            color: Color.fromARGB(255, 230, 245, 255),
-          ),
-          buttonElevation: 0,
-          itemHeight: 40,
-          itemPadding: const EdgeInsets.only(left: 14, right: 14),
-          dropdownMaxHeight: 200,
-          dropdownWidth: 200,
-          dropdownPadding: null,
-          dropdownDecoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            color: Colors.white
-          ),
-          dropdownElevation: 8,
-          scrollbarRadius: const Radius.circular(40),
-          scrollbarThickness: 6,
-          scrollbarAlwaysShow: true,
-          offset: const Offset(-20, 0),
-        ),
-      ),
+                    SizedBox(
+                      width: 4,
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Silahkan pilih lokasi',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 78, 78, 78),
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+                items: items
+                    .map((item) => DropdownMenuItem<String>(
+                          value: item,
+                          child: Text(
+                            item,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ))
+                    .toList(),
+                value: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value as String;
+                  });
+                },
+                icon: const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                ),
+                iconSize: 14,
+                iconEnabledColor: Color.fromARGB(255, 29, 29, 28),
+                iconDisabledColor: Colors.grey,
+                buttonHeight: 50,
+                buttonWidth: 160,
+                buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                buttonDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: Color.fromARGB(255, 230, 245, 255),
+                ),
+                buttonElevation: 0,
+                itemHeight: 40,
+                itemPadding: const EdgeInsets.only(left: 14, right: 14),
+                dropdownMaxHeight: 200,
+                dropdownWidth: 200,
+                dropdownPadding: null,
+                dropdownDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    color: Colors.white),
+                dropdownElevation: 8,
+                scrollbarRadius: const Radius.circular(40),
+                scrollbarThickness: 6,
+                scrollbarAlwaysShow: true,
+                offset: const Offset(-20, 0),
+              ),
+            ),
           ),
         ],
       ),
     );
   }
-  
+
   void setState(Null Function() param0) {}
+}
+
+String greeting() {
+  var hour = DateTime.now().hour;
+  if (hour < 12) {
+    return 'Morning';
+  }
+  if (hour < 17) {
+    return 'Afternoon';
+  }
+  return 'Evening';
 }
 
 class UserIntro extends StatelessWidget {
@@ -600,7 +656,7 @@ class UserIntro extends StatelessWidget {
               'Irwan Setiawan',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-              Text(
+            Text(
               '25736320097',
               style: TextStyle(fontWeight: FontWeight.w500),
             ),

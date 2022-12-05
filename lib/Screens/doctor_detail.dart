@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:d_medis_ios_apps/styles/colors.dart';
 import 'package:d_medis_ios_apps/styles/styles.dart';
+
+// ignore: depend_on_referenced_packages, library_prefixes
 import "package:latlong2/latlong.dart" as latLng;
 
 class SliverDoctorDetail extends StatelessWidget {
@@ -14,24 +16,26 @@ class SliverDoctorDetail extends StatelessWidget {
         slivers: [
           SliverAppBar(
             pinned: true,
-            title: Text('Detail Doctor'),
-            backgroundColor: Color(MyColors.primary),
+            title: Text('Detail Klinik'),
+            backgroundColor: Color.fromARGB(255, 45, 134, 236),
             expandedHeight: 200,
             flexibleSpace: FlexibleSpaceBar(
               background: Image(
-                image: AssetImage('assets/hospital.jpeg'),
+                image: AssetImage('assets/images/poli1.png'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           SliverToBoxAdapter(
             child: DetailBody(),
+            
           )
         ],
       ),
     );
   }
 }
+
 
 class DetailBody extends StatelessWidget {
   const DetailBody({
@@ -50,19 +54,19 @@ class DetailBody extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          DoctorInfo(),
-          SizedBox(
-            height: 30,
-          ),
+          // DoctorInfo(),
+          // SizedBox(
+          //   height: 30,
+          // ),
           Text(
-            'About Doctor',
+            'Alamat Klinik :',
             style: kTitleStyle,
           ),
           SizedBox(
             height: 15,
           ),
           Text(
-            'Dr. Joshua Simorangkir is a specialist in internal medicine who specialzed blah blah.',
+            'Jl Arya Jaya Santika RT 02 RW 03.',
             style: TextStyle(
               color: Color(MyColors.purple01),
               fontWeight: FontWeight.w500,
@@ -73,20 +77,27 @@ class DetailBody extends StatelessWidget {
             height: 25,
           ),
           Text(
-            'Location',
+            'Kontak',
             style: kTitleStyle,
           ),
           SizedBox(
             height: 25,
           ),
-          DoctorLocation(),
+          Text(
+            'Jl Arya Jaya Santika RT 02 RW 03.',
+            style: TextStyle(
+              color: Color(MyColors.purple01),
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+          ),
           SizedBox(
-            height: 25,
+            height: 45,
           ),
           ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-                Color(MyColors.primary),
+                Color.fromARGB(255, 31, 177, 245),
               ),
             ),
             child: Text('Book Appointment'),
@@ -127,33 +138,33 @@ class DoctorLocation extends StatelessWidget {
   }
 }
 
-class DoctorInfo extends StatelessWidget {
-  const DoctorInfo({
-    Key? key,
-  }) : super(key: key);
+// class DoctorInfo extends StatelessWidget {
+//   const DoctorInfo({
+//     Key? key,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: const [
-        NumberCard(
-          label: 'Patients',
-          value: '100+',
-        ),
-        SizedBox(width: 15),
-        NumberCard(
-          label: 'Experiences',
-          value: '10 years',
-        ),
-        SizedBox(width: 15),
-        NumberCard(
-          label: 'Rating',
-          value: '4.0',
-        ),
-      ],
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       children: const [
+//         NumberCard(
+//           label: 'Patients',
+//           value: '100+',
+//         ),
+//         SizedBox(width: 15),
+//         NumberCard(
+//           label: 'Experiences',
+//           value: '10 years',
+//         ),
+//         SizedBox(width: 15),
+//         NumberCard(
+//           label: 'Rating',
+//           value: '4.0',
+//         ),
+//       ],
+//     );
+//   }
+// }
 
 class AboutDoctor extends StatelessWidget {
   final String title;
@@ -241,7 +252,7 @@ class DetailDoctorCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Dr. Josua Simorangkir',
+                      'Klinik Omega Citra Raya',
                       style: TextStyle(
                           color: Color(MyColors.header01),
                           fontWeight: FontWeight.w700),
@@ -259,10 +270,10 @@ class DetailDoctorCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Image(
-                image: AssetImage('assets/doctor01.jpeg'),
-                width: 100,
-              )
+              // Image(
+              //   image: AssetImage('assets/images/doctor01.jpeg'),
+              //   width: 100,
+              // )
             ],
           ),
         ),

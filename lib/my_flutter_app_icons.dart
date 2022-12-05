@@ -25,6 +25,5 @@ class MyFlutterApp {
   static const IconData group_96 = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData group_97 = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData group_98 = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData ___icon__person_ = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData frame = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -315,6 +315,22 @@ List<Map> categories1 = [
   {'icon1': MyFlutterApp.frame, 'text1': 'Registrasi Telemedical'},
   {'icon1': MyFlutterApp.group_96, 'text1': 'Daftar Antrian'},
 ];
+List<Map> categories2 = [
+  {'icon2': MyFlutterApp.group_95, 'text2': 'Daftar Antrian'},
+  {'icon2': MyFlutterApp.group_97, 'text2': 'Informasi Dokter'},
+  {'icon2': Icons.local_hospital, 'text2': 'Info D-Medis'},
+];
+
+// List<Map> categories1 = [
+//   {'icon1': MyFlutterApp.group_98, 'text1': 'Registrasi Klinik'},
+//   {'icon1': MyFlutterApp.frame, 'text1': 'Registrasi Telemedical'},
+//   {'icon1': MyFlutterApp.group_96, 'text1': 'Daftar Antrian'},
+// ];
+// List<Map> categories2 = [
+//   {'icon2': MyFlutterApp.group_95, 'text2': 'Daftar Antrian'},
+//   {'icon2': MyFlutterApp.group_97, 'text2': 'Informasi Dokter'},
+//   {'icon2': Icons.local_hospital, 'text2': 'Info D-Medis'},
+// ];
 
 class CategoryIcons1 extends StatelessWidget {
   const CategoryIcons1({
@@ -336,12 +352,6 @@ class CategoryIcons1 extends StatelessWidget {
   }
 }
 
-List<Map> categories2 = [
-  {'icon2': MyFlutterApp.group_95, 'text2': 'Daftar Antrian'},
-  {'icon2': MyFlutterApp.group_97, 'text2': 'Informasi Dokter'},
-  {'icon2': Icons.local_hospital, 'text2': 'Info D-Medis'},
-];
-
 class CategoryIcons2 extends StatelessWidget {
   const CategoryIcons2({
     Key? key,
@@ -362,58 +372,6 @@ class CategoryIcons2 extends StatelessWidget {
   }
 }
 
-class ScheduleCard extends StatelessWidget {
-  const ScheduleCard({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 91, 186, 250),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      width: double.infinity,
-      padding: EdgeInsets.all(20),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          Icon(
-            Icons.calendar_today,
-            color: Colors.white,
-            size: 15,
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            'Mon, July 29',
-            style: TextStyle(color: Colors.white),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Icon(
-            Icons.access_alarm,
-            color: Colors.white,
-            size: 17,
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Flexible(
-            child: Text(
-              '11:00 ~ 12:10',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class CategoryIcon1 extends StatelessWidget {
   IconData icon1;
   String text1;
@@ -422,6 +380,7 @@ class CategoryIcon1 extends StatelessWidget {
     required this.icon1,
     required this.text1,
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -508,6 +467,60 @@ class CategoryIcon2 extends StatelessWidget {
     );
   }
 }
+
+
+class ScheduleCard extends StatelessWidget {
+  const ScheduleCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 91, 186, 250),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      width: double.infinity,
+      padding: EdgeInsets.all(20),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const [
+          Icon(
+            Icons.calendar_today,
+            color: Colors.white,
+            size: 15,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Text(
+            'Mon, July 29',
+            style: TextStyle(color: Colors.white),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Icon(
+            Icons.access_alarm,
+            color: Colors.white,
+            size: 17,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Flexible(
+            child: Text(
+              '11:00 ~ 12:10',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
 final List<String> items = [
   'Item1',

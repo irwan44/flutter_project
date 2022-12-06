@@ -1,12 +1,16 @@
+import 'package:d_medis_ios_apps/Screens/Daftarklink.dart';
+import 'package:d_medis_ios_apps/Screens/Profile.dart';
+import 'package:d_medis_ios_apps/Screens/login_screen.dart';
+import 'package:d_medis_ios_apps/Screens/signup_screen.dart';
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:d_medis_ios_apps/routes/router.dart';
 import 'package:d_medis_ios_apps/styles/colors.dart';
 import 'package:d_medis_ios_apps/styles/styles.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:d_medis_ios_apps/icon_generator/my_flutter_app_icons.dart';
 import 'package:d_medis_ios_apps/responsive.dart';
-
 
 class HomeTab extends StatelessWidget {
   final void Function() onPressedScheduleCard;
@@ -35,14 +39,18 @@ class HomeTab extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            CategoryIcons1(),
+            Categories(),
             SizedBox(
               height: 20,
             ),
-            CategoryIcons2(),
+             Categories2(),
             SizedBox(
               height: 20,
             ),
+            //  CategoryIcons3(),
+            // SizedBox(
+            //   width: 40,
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -129,12 +137,7 @@ List<Map> doctors = [
   }
 ];
 
-
-
-
-
 class TopDoctorCard extends StatelessWidget {
-
   String img;
   String doctorName;
   String doctorTitle;
@@ -310,16 +313,21 @@ class AppointmentCard extends StatelessWidget {
   }
 }
 
-List<Map> categories1 = [
-  {'icon1': MyFlutterApp.group_98, 'text1': 'Registrasi Klinik'},
-  {'icon1': MyFlutterApp.frame, 'text1': 'Registrasi Telemedical'},
-  {'icon1': MyFlutterApp.group_96, 'text1': 'Daftar Antrian'},
-];
-List<Map> categories2 = [
-  {'icon2': MyFlutterApp.group_95, 'text2': 'Daftar Antrian'},
-  {'icon2': MyFlutterApp.group_97, 'text2': 'Informasi Dokter'},
-  {'icon2': Icons.local_hospital, 'text2': 'Info D-Medis'},
-];
+// List<Map> categories1 = [
+//   {'icon1': MyFlutterApp.group_98, 'text1': 'Registrasi Klinik'},
+//   {'icon1': MyFlutterApp.frame, 'text1': 'Registrasi Telemedical'},
+//   {'icon1': MyFlutterApp.group_96, 'text1': 'Daftar Antrian'},
+// ];
+// List<Map> categories2 = [
+//   {'icon2': MyFlutterApp.group_95, 'text2': 'Registrasi Klinik'},
+//   {'icon2': MyFlutterApp.group_97, 'text2': 'Informasi Dokter'},
+//   {'icon2': Icons.local_hospital, 'text2': 'Info D-Medis'},
+// ];
+// List<Map> categories3 = [
+//   // {'icon3': MyFlutterApp.group_95, 'text3': 'Daftar Antrian'},
+//   // {'icon3': MyFlutterApp.group_97, 'text3': 'Informasi Dokter'},
+//   // {'icon3': Icons.local_hospital, 'text3': 'Info D-Medis'},
+// ];
 
 // List<Map> categories1 = [
 //   {'icon1': MyFlutterApp.group_98, 'text1': 'Registrasi Klinik'},
@@ -331,136 +339,79 @@ List<Map> categories2 = [
 //   {'icon2': MyFlutterApp.group_97, 'text2': 'Informasi Dokter'},
 //   {'icon2': Icons.local_hospital, 'text2': 'Info D-Medis'},
 // ];
+class Categories extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<Map<String, dynamic>> categories = [
+      {"icon": "assets/icons/Registrasi_Klinik.svg", "text": "Registrasi Klinik"},
+      {"icon": "assets/icons/Registrasi_Telemedical.svg", "text": "Registrasi Telemedical"},
+      {"icon": "assets/icons/Daftar_Antrian.svg", "text": "Daftar Antrian"},
+      {"icon": "assets/icons/Riwayat_Medis.svg", "text": "Riwayat Medis"},
+    ];
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: List.generate(
+          categories.length,
+          (index) => CategoryCard(
+            icon: categories[index]["icon"],
+            text: categories[index]["text"],
+            press: () {if(index==0){
+                Navigator.push(
+                   context,
+                    MaterialPageRoute(builder: (context) => DaftarKlinik()),
+                );
+              }
+               if(index==1){
+                  Navigator.push(
+                    context,
+                      MaterialPageRoute(builder: (context) => const ProfileScreen()),
+                       );
+                       }
+                       },
+                     ),
+                    ),
+                   );
+                  }
+                }
 
-class CategoryIcons1 extends StatelessWidget {
-  const CategoryIcons1({
+class CategoryCard extends StatelessWidget {
+  const CategoryCard({
     Key? key,
+    required this.icon,
+    required this.text,
+    required this.press,
   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        for (var category in categories1)
-          CategoryIcon1(
-            icon1: category['icon1'],
-            text1: category['text1'],
-          ),
-      ],
-    );
-  }
-}
-
-class CategoryIcons2 extends StatelessWidget {
-  const CategoryIcons2({
-    Key? key,
-  }) : super(key: key);
+  final String icon, text;
+  final GestureTapCallback press;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        for (var category in categories2)
-          CategoryIcon2(
-            icon2: category['icon2'],
-            text2: category['text2'],
-          ),
-      ],
-    );
-  }
-}
-
-class CategoryIcon1 extends StatelessWidget {
-  IconData icon1;
-  String text1;
-
-  CategoryIcon1({
-    required this.icon1,
-    required this.text1,
-  });
-
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      splashColor: Color(MyColors.bg01),
-      onTap: () {Navigator.pushNamed(context, '/listpoli');},
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
+    return GestureDetector(
+      onTap: press,
+      child: SizedBox(
+        width: (75),
         child: Column(
           children: [
             Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
+              padding: EdgeInsets.all((15)),
+              height: (55),
+              width: (95),
+              decoration: BoxDecoration(          
                 color: Color.fromARGB(255, 230, 245, 255),
-                borderRadius: BorderRadius.circular(50),
+                borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(
-                icon1,
-                color: Color.fromARGB(255, 31, 177, 245),
-              ),
+              child: SvgPicture.asset(icon),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 5),
             Text(
-              text1,
+              text,
+              textAlign: TextAlign.center,
               style: TextStyle(
-                color: Color.fromARGB(255, 31, 177, 245),
                 fontSize: 12,
-                fontWeight: FontWeight.w600,
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-class CategoryIcon2 extends StatelessWidget {
-  IconData icon2;
-  String text2;
-
-  CategoryIcon2({
-    required this.icon2,
-    required this.text2,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      splashColor: Color(MyColors.bg01),
-      onTap: () {Navigator.pushNamed(context, '/registerklinik');},
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Column(
-          children: [
-            Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 230, 245, 255),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Icon(
-                icon2,
-                color: Color.fromARGB(255, 31, 177, 245),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              text2,
-              style: TextStyle(
-                color: Color.fromARGB(255, 31, 177, 245),
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
+            )
           ],
         ),
       ),
@@ -468,6 +419,144 @@ class CategoryIcon2 extends StatelessWidget {
   }
 }
 
+class Categories2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<Map<String, dynamic>> categories = [
+      {"icon": "assets/icons/Daftar_Antrian.svg", "text": "Profile Pasien"},
+      {"icon": "assets/icons/Informasi_Dokter.svg", "text": "Info SIR-S"},
+      {"icon": "assets/icons/Registrasi_Klinik.svg", "text": "Info D-Medis"},
+      {"icon": "assets/icons/Registrasi_Telemedical.svg", "text": "More"},
+    ];
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: List.generate(
+          categories.length,
+          (index) => CategoryCard2(
+            icon: categories[index]["icon"],
+            text: categories[index]["text"],
+            press: () {},
+          ),
+        ),
+    );
+  }
+}
+
+class CategoryCard2 extends StatelessWidget {
+  const CategoryCard2({
+    Key? key,
+    required this.icon,
+    required this.text,
+    required this.press,
+  }) : super(key: key);
+
+  final String icon, text;
+  final GestureTapCallback press;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: press,
+      child: SizedBox(
+        width: (55),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all((15)),
+              height: (55),
+              width: (55),
+              decoration: BoxDecoration(          
+                color: Color.fromARGB(255, 230, 245, 255),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: SvgPicture.asset(icon),
+            ),
+            SizedBox(height: 5),
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// class CategoryIcons2 extends StatelessWidget {
+//   const CategoryIcons2({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//       children: [
+//         for (var category in categories2)
+//           CategoryIcon2(
+//             icon2: category['icon2'],
+//             text2: category['text2'],
+             
+//           ),
+//       ],
+//     );
+//   }
+// }
+
+// class CategoryIcon2 extends StatelessWidget {
+//   IconData icon2;
+//   String text2;
+
+//   CategoryIcon2({
+//     required this.icon2,
+//     required this.text2,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return InkWell(
+//       splashColor: Color(MyColors.bg01),
+//       onTap: () {
+//         Navigator.pushNamed(context, '/registerklinik');
+//       },
+//       child: Padding(
+//         padding: const EdgeInsets.all(4.0),
+//         child: Column(
+//           children: [
+//             Container(
+//               width: 50,
+//               height: 50,
+//               decoration: BoxDecoration(
+//                 color: Color.fromARGB(255, 230, 245, 255),
+//                 borderRadius: BorderRadius.circular(50),
+//               ),
+//               child: Icon(
+//                 icon2,
+//                 color: Color.fromARGB(255, 31, 177, 245),
+//               ),
+//             ),
+//             SizedBox(
+//               height: 10,
+//             ),
+//             Text(
+//               text2,
+//               style: TextStyle(
+//                 color: Color.fromARGB(255, 31, 177, 245),
+//                 fontSize: 12,
+//                 fontWeight: FontWeight.w600,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class ScheduleCard extends StatelessWidget {
   const ScheduleCard({
@@ -520,7 +609,6 @@ class ScheduleCard extends StatelessWidget {
     );
   }
 }
-
 
 final List<String> items = [
   'Item1',
@@ -675,8 +763,10 @@ class UserIntro extends StatelessWidget {
             ),
           ],
         ),
+        
         const CircleAvatar(
           backgroundImage: AssetImage('assets/images/person.jpeg'),
+           
         )
       ],
     );

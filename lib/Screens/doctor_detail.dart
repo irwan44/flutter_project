@@ -21,7 +21,7 @@ class SliverDoctorDetail extends StatelessWidget {
             expandedHeight: 200,
             flexibleSpace: FlexibleSpaceBar(
               background: Image(
-                image: AssetImage('assets/images/poli1.png'),
+                image: AssetImage('assets/images/rumahsakit.jpeg'),
                 fit: BoxFit.cover,
               ),
             ),

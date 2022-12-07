@@ -1,7 +1,9 @@
+import 'package:d_medis_ios_apps/Screens/Ubah_Password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import '../screens/doctor_detail.dart';
+
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -15,9 +17,9 @@ class ProfileScreen extends StatelessWidget {
           children: [
             // User card
             BigUserCard(
-              cardColor: Colors.red,
-              userName: "Babacar Ndong",
-              userProfilePic: AssetImage("assets/images/avatar.png"),
+              cardColor: Color.fromARGB(255, 31, 177, 245),
+              userName: "Irwan Setiawan",
+              userProfilePic: AssetImage("assets/images/person.jpeg"),
               cardActionWidget: SettingsItem(
                 icons: Icons.edit,
                 iconStyle: IconStyle(
@@ -25,8 +27,8 @@ class ProfileScreen extends StatelessWidget {
                   borderRadius: 50,
                   backgroundColor: Colors.yellow[600],
                 ),
-                title: "Modify",
-                subtitle: "Tap to change your data",
+                title: "Edit Profile",
+                subtitle: "Ketuk untuk mengubah data Anda",
                 onTap: () {
                   print("OK");
                 },
@@ -35,27 +37,32 @@ class ProfileScreen extends StatelessWidget {
             SettingsGroup(
               items: [
                 SettingsItem(
-                  onTap: () {},
+                  onTap: () {{Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UbahProfile(),
+                      ));
+            };},
                   icons: CupertinoIcons.pencil_outline,
                   iconStyle: IconStyle(),
-                  title: 'Appearance',
-                  subtitle: "Make Ziar'App yours",
+                  title: 'Ubah Password',
+                  subtitle: "Demi Keamanan Akun Anda",
                 ),
-                SettingsItem(
-                  onTap: () {},
-                  icons: Icons.dark_mode_rounded,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.red,
-                  ),
-                  title: 'Dark mode',
-                  subtitle: "Automatic",
-                  trailing: Switch.adaptive(
-                    value: false,
-                    onChanged: (value) {},
-                  ),
-                ),
+                // SettingsItem(
+                //   onTap: () {},
+                //   icons: Icons.dark_mode_rounded,
+                //   iconStyle: IconStyle(
+                //     iconsColor: Colors.white,
+                //     withBackground: true,
+                //     backgroundColor: Colors.red,
+                //   ),
+                //   title: 'Dark mode',
+                //   subtitle: "Automatic",
+                //   trailing: Switch.adaptive(
+                //     value: false,
+                //     onChanged: (value) {},
+                //   ),
+                // ),
               ],
             ),
             SettingsGroup(
@@ -66,8 +73,8 @@ class ProfileScreen extends StatelessWidget {
                   iconStyle: IconStyle(
                     backgroundColor: Colors.purple,
                   ),
-                  title: 'About',
-                  subtitle: "Learn more about Ziar'App",
+                  title: 'Informasion Apps',
+                  subtitle: "Lebih Detail Tentang Aplikasi D-Medis",
                 ),
               ],
             ),

@@ -459,13 +459,13 @@ class CategoryCard2 extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: SizedBox(
-        width: (55),
+        width: (75),
         child: Column(
           children: [
             Container(
               padding: EdgeInsets.all((15)),
               height: (55),
-              width: (55),
+              width: (95),
               decoration: BoxDecoration(          
                 color: Color.fromARGB(255, 230, 245, 255),
                 borderRadius: BorderRadius.circular(10),
@@ -763,11 +763,17 @@ class UserIntro extends StatelessWidget {
             ),
           ],
         ),
-        
-        const CircleAvatar(
+        InkWell(
+          onTap: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfileScreen(),
+                      ));
+            },
+        child: CircleAvatar(
           backgroundImage: AssetImage('assets/images/person.jpeg'),
-           
         )
+        ),
       ],
     );
   }
